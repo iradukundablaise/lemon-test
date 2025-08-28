@@ -14,6 +14,7 @@
 
     $router->get("/", [IndexController::class, "index"]);
     $router->get("/search", [IndexController::class, "search"]);
+    $router->get("/movie", [IndexController::class, "show"]);
 
     try {
         $router->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
