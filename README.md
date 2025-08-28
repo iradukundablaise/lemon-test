@@ -29,12 +29,7 @@
 
 ## Améliorations et optimisations
 
-1. **Page dédiée par film**  
-   Exemple : `http://localhost:8000/movies/{movieID}`  
-   À partir de l’identifiant d’un film, afficher la fiche complète avec toutes les informations détaillées.
-
-
-2. **Mise en cache**  
+ **Mise en cache**  
    Ajouter un système de cache pour conserver les résultats déjà recherchés et éviter des appels répétés à l’API TMDb.  
    Cela rend l’application plus rapide et améliore l’expérience utilisateur.  
 
