@@ -15,14 +15,14 @@ class IndexController extends Controller
         $this->service = new TMDbService();
     }
 
-    public function index(){
+    public function index(): string{
         $currentMovies = $this->service->getCurrentTopMovies();
         return $this->render('movie/index.html.twig', [
             "movies" => array_slice($currentMovies["results"] ?? [], 0, 4),
         ]);
     }
 
-    public function search(){
+    public function search(): string{
         $page = isset($_GET['page']) && is_numeric($_GET['page']) ? intval($_GET['page']) : 1;
         $movies = $this->service->searchMovie(
             $_GET['query'] ?? "",
@@ -34,6 +34,16 @@ class IndexController extends Controller
             "movies"=>$movies["results"] ?? [],
             "page" => $movies["page"] ?? 1,
             "total_pages" => $movies["total_pages"] ?? 1
+        ]);
+    }
+
+    public function show(): string
+    {
+        $movieId = $_GET["id"] ?? "";
+        $movie = $this->service->getMovieById(intval($movieId));
+
+        return $this->render('movie/show.html.twig', [
+            "movie" => $movie,
         ]);
     }
 
