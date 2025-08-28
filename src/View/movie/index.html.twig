@@ -3,13 +3,29 @@
 {% block title %}TMDb - Lemon interactive{% endblock %}
 
 {% block body %}
+    {% include "block/navbar.html.twig" %}
     <div class="container">
-        <div class="row vh-100 d-flex justify-content-center align-items-center">
-            <div class="col-8">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-6 mt-5">
                 <!-- Centered title -->
-                <h1 class="text-center mb-5">TMDb Search Engine</h1>
-                <!-- Search bar -->
-                {% include "block/search.html.twig" %}
+                <h1 class="text-center mb-5">TMDb Moteur de recherche</h1>
+            </div>
+            <div class="row mb-4 flex justify-content-center">
+                <div class="col-md-6">
+                    {% include "block/search.html.twig" %}
+                </div>
+            </div>
+            <div class="col-12 mt-5 mb-5">
+                <h2 class="mb-4 text-center">🎬 En salle en ce moment</h2>
+
+                <!-- Grille de films -->
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4">
+                    {% for movie in movies %}
+                        {%  include "block/movie.html.twig" %}
+                    {% else %}
+                        <p>Aucun résultat trouvé.</p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
