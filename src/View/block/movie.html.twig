@@ -13,7 +13,9 @@
 
         <!-- Infos film -->
         <div class="card-body d-flex flex-column">
-            <h5 class="card-title">{{ movie.title }}</h5>
+            <h5 class="card-title">
+                <a href="/movie?id={{ movie.id }}">{{ movie.title }}</a>
+            </h5>
             <p class="card-subtitle mb-2 text-muted small">
                 {{ movie.release_date|date("d/m/Y") }} • {{ movie.original_language|upper }}
             </p>

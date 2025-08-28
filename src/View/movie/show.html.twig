@@ -1,0 +1,75 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ movie.title }} - Lemon Interactive {% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row g-4">
+            <!-- Left column: movie details -->
+            <div class="col-md-8">
+                <div class="p-4 bg-light rounded shadow-sm">
+                    <h1 class="mb-3">{{ movie.title }}</h1>
+
+                    <p><strong>Synopsis :</strong> {{ movie.overview ?: "Pas de synopsis disponible." }}</p>
+
+                    <p><strong>Langue :</strong> {{ movie.original_language|upper }}</p>
+
+                    <p><strong>Date de sortie :</strong> {{ movie.release_date ?: "Inconnue" }}</p>
+
+                    {% if movie.runtime %}
+                        <p><strong>Durée :</strong> {{ movie.runtime }} min</p>
+                    {% endif %}
+
+                    {% if movie.genres is defined and movie.genres|length > 0 %}
+                        <p><strong>Genres :</strong>
+                            {% for genre in movie.genres %}
+                                {{ genre.name }}{% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                        </p>
+                    {% endif %}
+
+                    {% if movie.vote_average %}
+                        <p><strong>Note :</strong> {{ movie.vote_average }}/10 ({{ movie.vote_count }} votes)</p>
+                    {% endif %}
+
+                    {% if movie.credits and movie.credits.cast is defined %}
+                        <p><strong>Acteurs principaux :</strong>
+                            {% for actor in movie.credits.cast|slice(0,5) %}
+                                {{ actor.name }}{% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                        </p>
+                    {% endif %}
+
+                    {% if movie.production_companies is defined and movie.production_companies|length > 0 %}
+                        <p><strong>Production :</strong>
+                            {% for company in movie.production_companies %}
+                                {{ company.name }}{% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                        </p>
+                    {% endif %}
+
+                    {% if movie.budget %}
+                        <p><strong>Budget :</strong> {{ movie.budget|number_format(0, ',', ' ') }} $</p>
+                    {% endif %}
+
+                    {% if movie.revenue %}
+                        <p><strong>Recettes :</strong> {{ movie.revenue|number_format(0, ',', ' ') }} $</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Right column: movie poster -->
+            <div class="col-md-4 d-flex justify-content-center align-items-start">
+                {% if movie.poster_path %}
+                    <div class="shadow rounded overflow-hidden" style="max-width:500px;">
+                        <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
+                             alt="{{ movie.title }} Poster"
+                             class="img-fluid">
+                    </div>
+                {% else %}
+                    <p>Aucun poster disponible.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
