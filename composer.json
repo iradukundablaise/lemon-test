@@ -1,0 +1,21 @@
+{
+    "name": "blaise/lemon-php-test",
+    "description": "Lemon interactive php test",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Blaise IRADUKUNDA",
+            "email": "ba.iradukunda@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.0",
+        "guzzlehttp/guzzle": "^7.10",
+        "vlucas/phpdotenv": "^5.6",
+        "monolog/monolog": "^3.9"
+    }
+}
