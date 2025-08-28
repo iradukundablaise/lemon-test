@@ -18,7 +18,7 @@ class IndexController extends Controller
     public function index(): string{
         $currentMovies = $this->service->getCurrentTopMovies();
         return $this->render('movie/index.html.twig', [
-            "movies" => array_slice($currentMovies["results"] ?? [], 0, 4),
+            "movies" => $currentMovies["results"],
         ]);
     }
 
