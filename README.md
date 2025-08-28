@@ -27,7 +27,15 @@
 2. Composer pour les dépendances : J’utilise Composer pour gérer les packages externes, ça m’évite de réinventer la roue et me fait gagner du temps.
 3. Twig pour les templates : J’ai opté pour Twig parce que c’est simple, efficace et que j’ai déjà l’habitude avec Symfony.
 
-## Optimisation
-On pourrai ajouter un système de cache pour stocker les films déjà recherchés et éviter de faire plusieurs fois les mêmes appels à l’API TMDb. Ça rendra l’application plus rapide.
+## Améliorations et optimisations
+
+1. **Page dédiée par film**  
+   Exemple : `http://localhost:8000/movies/{movieID}`  
+   À partir de l’identifiant d’un film, afficher la fiche complète avec toutes les informations détaillées.
+
+
+2. **Mise en cache**  
+   Ajouter un système de cache pour conserver les résultats déjà recherchés et éviter des appels répétés à l’API TMDb.  
+   Cela rend l’application plus rapide et améliore l’expérience utilisateur.  
 
 
