@@ -1,14 +1,4 @@
 # TMDb Movie Search App - Lemon Interactive
-## Fonctionnalités
-
-- Architecture **MVC** pour une séparation claire des responsabilités.
-- Définition simple de routes HTTP (`GET`, `POST`, etc.).
-- Gestion des dépendances via **Composer**.
-- Utilisation de **Twig** pour le rendu des templates.
-- Extensible grâce à l'utilisation de packages externes.
-- Journalisation des recherches dans un fichier `.log`.
-
----
 
 ## Prérequis
 
@@ -30,7 +20,14 @@
     ```
 3. **Tester l'application**
 
-   Ouvrir votre navigateur à l'adresse : [http://localhost:8000](http://localhost:8000)
+   Ouvrez l'adresse suivant dans votre navigateur : [http://localhost:8000](http://localhost:8000)
 
-## Choix que j'ai fait et Amélioration
+## Choix techniques
+1. Architecture MVC : J’ai choisi MVC pour bien séparer les responsabilités dans le code. Ça rend l’application plus claire et plus facile à maintenir.
+2. Composer pour les dépendances : J’utilise Composer pour gérer les packages externes, ça m’évite de réinventer la roue et me fait gagner du temps.
+3. Twig pour les templates : J’ai opté pour Twig parce que c’est simple, efficace et que j’ai déjà l’habitude avec Symfony.
+
+## Optimisation
+On pourrai ajouter un système de cache pour stocker les films déjà recherchés et éviter de faire plusieurs fois les mêmes appels à l’API TMDb. Ça rendra l’application plus rapide.
+
 
