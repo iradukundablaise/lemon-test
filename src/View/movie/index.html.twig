@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}TMDb - Lemon interactive{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row vh-100 d-flex justify-content-center align-items-center">
+            <div class="col-8">
+                <!-- Centered title -->
+                <h1 class="text-center mb-5">TMDb Search Engine</h1>
+                <!-- Search bar -->
+                {% include "block/search.html.twig" %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

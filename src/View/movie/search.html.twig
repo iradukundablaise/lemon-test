@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ query }} - Lemon interactive Movies{% endblock %}
+
+{% block body %}
+    {% include "block/navbar.html.twig" %}
+
+    <div class="container my-4">
+        <!-- Barre de recherche -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                {% include "block/search.html.twig" %}
+            </div>
+        </div>
+
+        <!-- Titre -->
+        <h2 class="mb-4">🎬 Films trouvés pour "{{ query }}"</h2>
+
+        <!-- Grille de films -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4">
+            {% for movie in movies %}
+                {%  include "block/movie.html.twig" %}
+            {% else %}
+                <p>Aucun résultat trouvé pour "{{ query }}".</p>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            {% include "block/pagination.html.twig" %}
+        </div>
+    </div>
+{% endblock %}
