@@ -1,0 +1,4 @@
+# Ignore the vendor directory
+/vendor
+/.git
+/.idea

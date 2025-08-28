@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  php-app:
+    build: .
+    container_name: lemon-interactive-tmdb
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/var/www/html:cached
